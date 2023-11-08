@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentEnteringPassword">
+
+    <fragment
+        android:id="@+id/fragmentEnteringPassword"
+        android:name="com.example.taskbia.authorization.FragmentEnteringPassword"
+        android:label="fragment_entering_password"
+        tools:layout="@layout/fragment_entering_password" >
+        <action
+            android:id="@+id/action_fragmentEnteringPassword_to_fragmentEnteringNumber"
+            app:destination="@id/fragmentEnteringNumber" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEnteringNumber"
+        android:name="com.example.taskbia.authorization.FragmentEnteringNumber"
+        android:label="fragment_entering_number"
+        tools:layout="@layout/fragment_entering_number" >
+        <action
+            android:id="@+id/action_fragmentEnteringNumber_to_fragmentEnteringPassword"
+            app:destination="@id/fragmentEnteringPassword" />
+    </fragment>
+</navigation>
