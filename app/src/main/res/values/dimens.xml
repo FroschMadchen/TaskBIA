@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_top_64dp">64dp</dimen>
+    <dimen name="margin_start_16dp">16dp</dimen>
+    <dimen name="crutch_155dp">155dp</dimen>
+</resources>

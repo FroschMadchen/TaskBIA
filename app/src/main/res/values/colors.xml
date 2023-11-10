@@ -3,9 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ppp">#F6C4C4</color>
-     <color name="bb">#EAEEF4</color>
-    <color name="bbw">#D0D5DC</color>
+     <color name="Gray10">#EAEEF4</color>
+    <color name="Gray30">#D0D5DC</color>
     <color name="DarkGray">#3C4049</color>
+    <color name="Gray40">#B8C4DB</color>
+    <color name="Red">#F0303F</color>
+
+
+
 
 
 </resources>

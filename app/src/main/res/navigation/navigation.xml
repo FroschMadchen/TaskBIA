@@ -3,17 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/fragmentEnteringPassword">
+    app:startDestination="@id/fragmentEnteringNumber">
 
-    <fragment
-        android:id="@+id/fragmentEnteringPassword"
-        android:name="com.example.taskbia.authorization.FragmentEnteringPassword"
-        android:label="fragment_entering_password"
-        tools:layout="@layout/fragment_entering_password" >
-        <action
-            android:id="@+id/action_fragmentEnteringPassword_to_fragmentEnteringNumber"
-            app:destination="@id/fragmentEnteringNumber" />
-    </fragment>
     <fragment
         android:id="@+id/fragmentEnteringNumber"
         android:name="com.example.taskbia.authorization.FragmentEnteringNumber"
@@ -23,4 +14,21 @@
             android:id="@+id/action_fragmentEnteringNumber_to_fragmentEnteringPassword"
             app:destination="@id/fragmentEnteringPassword" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentEnteringPassword"
+        android:name="com.example.taskbia.authorization.FragmentEnteringPassword"
+        android:label="fragment_entering_password"
+        tools:layout="@layout/fragment_entering_password" >
+        <action
+            android:id="@+id/action_fragmentEnteringPassword_to_fragmentEnteringNumber"
+            app:destination="@id/fragmentEnteringNumber" />
+        <action
+            android:id="@+id/action_fragmentEnteringPassword_to_mainActionFragment"
+            app:destination="@id/mainActionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainActionFragment"
+        android:name="com.example.taskbia.authorization.MainActionFragment"
+        android:label="fragment_main_action"
+        tools:layout="@layout/fragment_main_action" />
 </navigation>

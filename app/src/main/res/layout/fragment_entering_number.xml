@@ -11,75 +11,90 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/margin_top_64dp"
+        android:layout_marginStart="@dimen/margin_start_16dp"
         android:src="@drawable/short_roduc_logo"
-
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginStart="@dimen/margin_start_16dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="@dimen/margin_start_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <TextView
-            android:id="@+id/text"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hello_blank_fragment"
-            android:text="Добро пожаловать в БИА.Помощник логиста"
-
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_below="@+id/text"
-            android:hint="@string/hello_blank_fragment"
-            android:text="Введите свой номер для авторизации"
-
-            android:textSize="14sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text2"
-            android:background="@drawable/shape_rounded_cont"
-            android:focusable="true"
-            android:padding="12dp"
-            android:focusableInTouchMode="true"
-            android:textColorHint="#B8C4DB"
-            android:textColor="@color/DarkGray"
-            android:hint="+7 (999) 000 - 00 - 00" />
+            android:layout_height="@dimen/crutch_155dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            tools:ignore="InefficientWeight">
 
 
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/stolzl_regular"
+                android:hint="@string/hello_blank_fragment"
+                android:text="@string/greetings_text"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                tools:ignore="NestedWeights" />
 
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/stolzl_book"
+                android:gravity="center|start"
+                android:hint="@string/hello_blank_fragment"
+                android:text="@string/input_number"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/editNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:autofillHints="creditCardNumber"
+                android:background="@drawable/shape_rounded_cont"
+                android:digits="0123456789 -.()+"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/stolzl_book"
+                android:hint="@string/hint_7_900_00_00_00"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="@color/DarkGray"
+                android:textColorHint="@color/Gray40"
+                tools:ignore="Autofill,LabelFor" />
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="373dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="426dp"
-        android:background="@drawable/shape_rounded_cont"
-        android:backgroundTint="#EAEEF4"
-        android:text="Продолжить"
+        android:layout_width="370dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="@dimen/margin_start_16dp"
+        android:layout_marginTop="490dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="@color/Gray10"
+        android:text="@string/continue_"
         android:textAllCaps="true"
-        android:textColor="@color/bbw"
-        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/stolzl_medium"
+        android:textColor="@color/Gray40"
+        android:layout_marginEnd="@dimen/margin_start_16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
