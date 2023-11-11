@@ -8,4 +8,8 @@
     <string name="continue_">Продолжить</string>
     <string name="password_info">Для получения пароля обратитесь к руководителю</string>
     <string name="input_password">Введите пароль</string>
+    <string name="task_">Задания</string>
+    <string name="group_">Графики</string>
+    <string name="chat">Чат</string>
+    <string name="profile">Профиль</string>
 </resources>

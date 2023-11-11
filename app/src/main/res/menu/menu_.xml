@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/task_m"
+        android:title="@string/task_"
+        android:icon="@drawable/ic_task"/>
+
+    <item android:id="@+id/group_m"
+        android:title="@string/group_"
+        android:icon="@drawable/ic_group"/>
+
+    <item android:id="@+id/chat"
+        android:title="@string/chat"
+        android:icon="@drawable/ic_vector"/>
+
+    <item android:id="@+id/profile_m"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile"/>
+
+</menu>

@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainActionFragment"
-        android:name="com.example.taskbia.authorization.MainActionFragment"
+        android:name="com.example.taskbia.authorization.screen2.MainActionFragment"
         android:label="fragment_main_action"
         tools:layout="@layout/fragment_main_action" />
 </navigation>
