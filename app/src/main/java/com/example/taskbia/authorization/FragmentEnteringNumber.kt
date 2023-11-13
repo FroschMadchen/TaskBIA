@@ -21,16 +21,17 @@ import com.redmadrobot.inputmask.helper.Mask
 
 class FragmentEnteringNumber : Fragment() {
 
-    private var binding: FragmentEnteringNumberBinding? = null
+    private var _binding: FragmentEnteringNumberBinding? = null
     lateinit var mController: NavController
     var result = "0"
+    val mBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = FragmentEnteringNumberBinding.inflate(inflater).also { binding = it }.root
+    ): View = FragmentEnteringNumberBinding.inflate(inflater).also { _binding = it }.root
 
-    private fun <T> views(block: FragmentEnteringNumberBinding.() -> T): T? = binding?.block()
+    private fun <T> views(block: FragmentEnteringNumberBinding.() -> T): T? = _binding?.block()
 
     @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -82,5 +83,10 @@ class FragmentEnteringNumber : Fragment() {
         activity?.window
             ?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         views { editNumber.requestFocus() }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
