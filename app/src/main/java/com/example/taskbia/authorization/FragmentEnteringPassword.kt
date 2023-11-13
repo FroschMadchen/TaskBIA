@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -19,12 +20,12 @@ import com.example.taskbia.R
 import com.example.taskbia.databinding.FragmentEnteringPasswordBinding
 import com.google.android.material.snackbar.Snackbar
 
+const val passwordCorrect: String = "111111"
 
 class FragmentEnteringPassword : Fragment() {
 
     private var binding: FragmentEnteringPasswordBinding? = null
-    lateinit var mController: NavController
-    val passwordRight = "111111"
+    lateinit var navController: NavController
 
 
     override fun onCreateView(
@@ -32,63 +33,72 @@ class FragmentEnteringPassword : Fragment() {
         savedInstanceState: Bundle?
     ): View = FragmentEnteringPasswordBinding.inflate(inflater).also { binding = it }.root
 
-    private fun <T> views(block: FragmentEnteringPasswordBinding.() -> T): T? = binding?.block()
 
-    @SuppressLint("ResourceAsColor")
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mController = findNavController()
+        navController = findNavController()
         var passwordUser = ""
-        views {
+        binding?.apply {
             button.isEnabled = false
-            password.setOtpCompletionListener{
+            password.setOtpCompletionListener {
                 Log.d("Actual Value", it)
                 passwordUser = it.toString()
                 password.requestFocus()
-                Log.i("password_length_2","${passwordUser.count()} : $passwordUser ")
+                Log.i("password_length_2", "${passwordUser.count()} : $passwordUser ")
 
-                if(passwordUser.count() == passwordRight.count() ){
+                if (passwordUser.count() == passwordCorrect.count()) {
                     button.isEnabled = true
 
-                    button.background.setTint(ContextCompat.getColor(requireContext(),R.color.black))
+                    button.background.setTint(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.black
+                        )
+                    )
                     button.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                     button.setOnClickListener {
-                        if (passwordUser == passwordRight){
-                            mController.navigate(R.id.action_fragmentEnteringPassword_to_mainActionFragment)
+                        if (passwordUser == passwordCorrect) {
+                            navController.navigate(R.id.action_fragmentEnteringPassword_to_mainActionFragment)
                             password.setText("")
-                        }else{
+                        } else {
                             constLayoutFrame.setBackgroundResource(R.drawable.shape_rounded_variants)
-                            // constLayoutFrame.background.setTint(R.drawable.shape) //setTint(R.drawable.shape)
-                            passwordError.visibility = View.VISIBLE
+                            passwordError.isVisible = true
                             button.isEnabled = true
-                            button.background.setTint(ContextCompat.getColor(requireContext(),R.color.Gray10))
-                            button.setTextColor(ContextCompat.getColor(requireContext(), R.color.Gray40))
-
-                            val toast = Toast.makeText(context, "Правильный пароль: 111111", Toast.LENGTH_SHORT)
-                            toast.setGravity(Gravity.TOP, 0, 0)
-                            toast.show()
-
+                            button.background.setTint(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.Gray10
+                                )
+                            )
+                            button.setTextColor(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.Gray40
+                                )
+                            )
+                            Toast.makeText(
+                                context,
+                                "${context?.getString(R.string.password)} $passwordCorrect",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
             }
-
-
-
-        imageViewBack.setOnClickListener {
-            mController.navigate(R.id.action_fragmentEnteringPassword_to_fragmentEnteringNumber)
+            imageViewBack.setOnClickListener {
+                navController.navigate(R.id.action_fragmentEnteringPassword_to_fragmentEnteringNumber)
+            }
         }
-
-
-
-        }
-
     }
 
     override fun onStart() {
         super.onStart()
-        activity?.window
-            ?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-       views { password.requestFocus() }
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+        binding?.apply { password.requestFocus() }
     }
 }

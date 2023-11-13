@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".authorization.screen_menu.GroupFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="40sp"
-        android:text="График" />
+        android:textSize="@dimen/text_size_middle"
+        android:text="@string/group" />
 
 </FrameLayout>

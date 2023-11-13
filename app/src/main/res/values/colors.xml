@@ -2,16 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="ppp">#F6C4C4</color>
-     <color name="Gray10">#EAEEF4</color>
-    <color name="Gray30">#D0D5DC</color>
-    <color name="DarkGray">#3C4049</color>
-    <color name="Gray40">#B8C4DB</color>
-    <color name="Red">#F0303F</color>
-
-
-
-
+    <color name="gray10_background">#EAEEF4</color>
+    <color name="gray30">#D0D5DC</color>
+    <color name="dark_gray_active_btn">#3C4049</color>
+    <color name="gray40_text_not_active">#B8C4DB</color>
+    <color name="Red_text">#F0303F</color>
 
 </resources>
 

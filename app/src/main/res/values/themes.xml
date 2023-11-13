@@ -8,9 +8,9 @@
     <style name="Theme.TaskBIA" parent="Base.Theme.TaskBIA" />
 
     <style name="BottomNavigationStyle" parent="Widget.Design.BottomNavigationView">
-        <item name="android:background">#FFFFFFFF</item>
-        <item name="itemTextColor">#FF000000</item>
-        <item name="itemIconTint">#B8C4DB</item>
-        <item name="android:itemBackground">#D0D5DC</item>
+        <item name="android:background">@color/white</item>
+        <item name="itemTextColor">@color/black</item>
+        <item name="itemIconTint">@color/gray40_text_not_active</item>
+        <item name="android:itemBackground">@color/gray30</item>
     </style>
 </resources>

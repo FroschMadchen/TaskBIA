@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_top_64dp">64dp</dimen>
-    <dimen name="margin_start_16dp">16dp</dimen>
-    <dimen name="crutch_155dp">155dp</dimen>
+    <dimen name="margin_top">64dp</dimen>
+    <dimen name="margin_start">16dp</dimen>
+    <dimen name="crutch">155dp</dimen>
+    <dimen name="text_size">40sp</dimen>
+    <dimen name="text_size_middle">40sp</dimen>
+    <dimen name="margin_top_password">190dp</dimen>
+    <dimen name="margin_top_error_text">10dp</dimen>
 </resources>

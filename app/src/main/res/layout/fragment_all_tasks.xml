@@ -6,26 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".authorization.screen2.AllTasksFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/task_"
-        android:textSize="40dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-38dp" />
+        android:layout_height="wrap_content"
+        android:text="@string/task"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/text_size" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="633dp"
-        android:layout_marginTop="68dp"
-        tools:listitem="@layout/item_res"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text" />
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

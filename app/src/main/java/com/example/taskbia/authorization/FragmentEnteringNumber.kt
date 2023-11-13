@@ -1,14 +1,12 @@
 package com.example.taskbia.authorization
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -16,57 +14,65 @@ import androidx.navigation.fragment.findNavController
 import com.example.taskbia.R
 import com.example.taskbia.databinding.FragmentEnteringNumberBinding
 import com.redmadrobot.inputmask.MaskedTextChangedListener
-import com.redmadrobot.inputmask.helper.Mask
 
+
+private const val NUMBER: Int = 18
 
 class FragmentEnteringNumber : Fragment() {
 
     private var _binding: FragmentEnteringNumberBinding? = null
-    lateinit var mController: NavController
-    var result = "0"
-    val mBinding get() = _binding!!
+    private lateinit var mController: NavController
+    private var result: String = "0"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View = FragmentEnteringNumberBinding.inflate(inflater).also { _binding = it }.root
 
-    private fun <T> views(block: FragmentEnteringNumberBinding.() -> T): T? = _binding?.block()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
-    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mController = findNavController()
-      /*  getActivity()?.getWindow()
-            ?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        */
-        views {
+
+        _binding?.apply {
             button.isEnabled = false
             editNumber.requestFocus()
 
-            val editText = editNumber
             val listener = MaskedTextChangedListener(
                 "+7 ([000]) [000] [00] [00]",
                 true,
-                editText,
+                editNumber,
                 null,
                 object : MaskedTextChangedListener.ValueListener {
-                    @SuppressLint("ResourceAsColor")
                     override fun onTextChanged(
                         maskFilled: Boolean,
                         extractedValue: String,
                         formattedValue: String,
                         tailPlaceholder: String
                     ) {
-                        result = editText.text.toString()
+                        result = editNumber.text.toString()
                         Log.i("getNumberFun_FEN", "${result.length} : $result")
-                        if (result.count() >= 18) {
+                        if (result.count() >= NUMBER) {
                             button.isEnabled = true
-                            button.background.setTint(ContextCompat.getColor(requireContext(), R.color.black))
-                            button.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                            button.background.setTint(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.black
+                                )
+                            )
+                            button.setTextColor(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.white
+                                )
+                            )
                             button.setOnClickListener {
                                 mController.navigate(R.id.action_fragmentEnteringNumber_to_fragmentEnteringPassword)
-                                editText.setText("")
+                                editNumber.setText("")
                             }
                         } else {
                             Log.i("_if_else_FEN", "${result.length}")
@@ -74,19 +80,17 @@ class FragmentEnteringNumber : Fragment() {
                     }
                 }
             )
-            editText.addTextChangedListener(listener)
+            editNumber.addTextChangedListener(listener)
             Log.i("check_", "${result.length}")
         }
     }
+
     override fun onStart() {
         super.onStart()
-        activity?.window
-            ?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-        views { editNumber.requestFocus() }
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        requireActivity().window
+            .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+
+        _binding?.apply { editNumber.requestFocus() }
     }
 }
