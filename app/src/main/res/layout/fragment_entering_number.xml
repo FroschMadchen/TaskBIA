@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".authorization.FragmentEnteringNumber">
@@ -86,15 +87,16 @@
         android:layout_width="370dp"
         android:layout_height="55dp"
         android:layout_marginStart="@dimen/margin_start_16dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="432dp"
+        android:layout_marginEnd="@dimen/margin_start_16dp"
         android:background="@drawable/shape"
         android:backgroundTint="@color/Gray10"
+        android:fontFamily="@font/stolzl_medium"
         android:text="@string/continue_"
         android:textAllCaps="true"
-        android:fontFamily="@font/stolzl_medium"
         android:textColor="@color/Gray40"
-        android:layout_marginEnd="@dimen/margin_start_16dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
