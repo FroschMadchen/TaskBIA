@@ -8,7 +8,7 @@
 - 🐾 In three days, make the UI part of the application based on the layout from Figma 🐾  
   
 
-- 😁 + simplified architecture of the entire  application. 😁  
+- 😁 + simplified architecture of the entire  application. 😁    
 - Below is the architecture. 🐾
 
 🐾 Thanks for stopping by, kitty 🐸  
