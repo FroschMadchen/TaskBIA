@@ -1,6 +1,6 @@
 # TaskBIA
 ### <div align="centr">My name is Christina, I'm an android developer  👨‍💻</div>  
-
+                     
 
 - 🔭 This is a test task, a logistics assistant application for a company. 👁️      
 ### Conditions:
